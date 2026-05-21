@@ -46,7 +46,7 @@ export const publications: Publication[] = [
     ],
     venue: "SIGGRAPH 2025 Conference Paper",
     year: 2025,
-    image: "/pubs/kpnsm.png",
+    image: "/pubs/kpnsm.jpg",
     links: {
       pdf: "/publications/kpnsm.pdf",
       code: "https://github.com/Hoosus/KPNSM",
