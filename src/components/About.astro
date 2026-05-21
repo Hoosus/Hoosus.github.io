@@ -1,0 +1,96 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="about">
+  <div class="about-header">
+    <img
+      src={profile.avatar}
+      alt={profile.name}
+      class="avatar"
+      onerror="this.style.display='none'"
+    />
+    <div>
+      <h1>{profile.name}</h1>
+      <div class="links">
+        <a href={`mailto:${profile.email}`}>Email</a>
+        {profile.links.googleScholar && (
+          <a href={profile.links.googleScholar} target="_blank" rel="noopener">
+            Google Scholar
+          </a>
+        )}
+        {profile.links.github && (
+          <a href={profile.links.github} target="_blank" rel="noopener">
+            GitHub
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+  <p class="bio" set:html={profile.bio} />
+</section>
+
+<style>
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--color-border);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+  }
+
+  .links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-light);
+    transition: all 0.2s;
+  }
+
+  .links a:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .bio {
+    margin-top: 20px;
+    white-space: pre-line;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 600px) {
+    .about-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .links {
+      justify-content: center;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+    }
+  }
+</style>

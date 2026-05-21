@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Kernel Predicting Neural Shadow Maps";
+const authors = [
+  { name: "Xuejun Hu", url: "https://hoosus.github.io" },
+  { name: "Jinfan Lu", url: "https://github.com/LJFYC007" },
+  { name: "Kun Xu", url: "https://cg.cs.tsinghua.edu.cn/people/~kun/" },
+];
+const venue = "SIGGRAPH 2025 Conference Paper";
+const links = {
+  pdf: "/publications/kpnsm.pdf",
+  code: "https://github.com/Hoosus/KPNSM",
+};
+const bibtex = `@inproceedings{10.1145/3721238.3730645,
+  author = {Hu, Xuejun and Lu, Jinfan and Xu, Kun},
+  title = {Kernel Predicting Neural Shadow Maps},
+  year = {2025},
+  isbn = {9798400715402},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3721238.3730645},
+  doi = {10.1145/3721238.3730645},
+  abstract = {Existing neural shadow mapping methods&nbsp;[Datta et&nbsp;al. 2022] have shown to be promising in generating high quality soft shadows. However, it demonstrates limited generalizability to new scenes. In this paper, we present a novel neural method, named kernel predicting neural shadow mapping to address this issue. Specifically, we explicitly model soft shadow values as pixelwise local filtering from nearby base shadow values (i.e., the classic hard shadow values) in the screen space, where the local filter weights are predicted through a trained neural network. We use dilated filters as the representation of our local filters to maintain a balance between computational efficiency and receptive field of a local filter. We further enhance shadow quality by replacing the classic shadow map algorithm&nbsp;[Williams 1978] with moment shadow maps&nbsp;[Peters and Klein 2015] to generate the base shadows values. With carefully designed filters, input features, and loss functions with temporal regularization, our method runs in real-time framerates (i.e., >100 fps for 2048 \texttimes{} 1024 resolution), produces temporally-stable soft shadows with good generalizability, and consistently beats state-of-the-art methods in both visual qualities and numeric measures. Code and model weights are available at .},
+  booktitle = {Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Conference Papers},
+  articleno = {36},
+  numpages = {10},
+  keywords = {Shadow Mapping, Kernel Prediction, Neural Networks},
+  location = {},
+  series = {SIGGRAPH Conference Papers '25}
+}`;
+---
+
+<BaseLayout title={title}>
+  <main class="project-page">
+    <a href="/" class="back">&larr; Back to Home</a>
+
+    <h1>{title}</h1>
+    <div class="authors">
+      {authors.map((author, i) => (<>{i > 0 && <span>, </span>}{author.url ? <a href={author.url} target="_blank" rel="noopener">{author.name}</a> : <span>{author.name}</span>}</>))}
+    </div>
+    <div class="venue">{venue}</div>
+
+    <div class="teaser">
+      <img src="/pubs/kpnsm_teaser.png" alt={title} />
+    </div>
+
+    <div class="link-buttons">
+      {links.pdf && (
+        <a href={links.pdf} class="btn" target="_blank">PDF</a>
+      )}
+      {links.code && (
+        <a href={links.code} class="btn" target="_blank">Code</a>
+      )}
+    </div>
+
+    <section>
+      <h2>Abstract</h2>
+      <p class="abstract">
+        Existing neural shadow mapping methods [Datta et al. 2022] have shown to be promising in generating high quality soft shadows. However, it demonstrates limited generalizability to new scenes. In this paper, we present a novel neural method, named kernel predicting neural shadow mapping to address this issue. Specifically, we explicitly model soft shadow values as pixelwise local filtering from nearby base shadow values (i.e., the classic hard shadow values) in the screen space, where the local filter weights are predicted through a trained neural network. We use dilated filters as the representation of our local filters to maintain a balance between computational efficiency and receptive field of a local filter. We further enhance shadow quality by replacing the classic shadow map algorithm [Williams 1978] with moment shadow maps [Peters and Klein 2015] to generate the base shadows values. With carefully designed filters, input features, and loss functions with temporal regularization, our method runs in real-time framerates (i.e., >100 fps for 2048 ×1024 resolution), produces temporally-stable soft shadows with good generalizability, and consistently beats state-of-the-art methods in both visual qualities and numeric measures.
+      </p>
+    </section>
+
+    <section>
+      <h2>Citation</h2>
+      <div class="bibtex">
+        <pre><code>{bibtex}</code></pre>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .project-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 24px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .back:hover {
+    color: var(--color-accent);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .authors {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .authors a {
+    color: var(--color-accent);
+  }
+
+  .venue {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+  }
+
+  .teaser {
+    margin-bottom: 24px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .teaser img {
+    width: 100%;
+    display: block;
+  }
+
+  .link-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .btn {
+    padding: 8px 24px;
+    border: 2px solid var(--color-accent);
+    border-radius: 4px;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  section {
+    margin-top: 36px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  .abstract {
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  .bibtex {
+    background: #f7f7f7;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+
+  .bibtex pre {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre;
+  }
+
+  .bibtex code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  @media (max-width: 600px) {
+    .project-page {
+      padding: 0 16px 60px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+</style>

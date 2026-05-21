@@ -1,0 +1,136 @@
+---
+import { publications } from "../data/publications";
+
+const ME = "Xuejun Hu";
+---
+
+<section id="publications">
+  <h2>Publications</h2>
+  <div class="pub-list">
+    {publications.map((pub) => (
+      <div class="pub-item">
+        <div class="pub-row">
+          <div class="pub-image">
+            <img src={pub.image} alt={pub.title} loading="lazy" />
+          </div>
+          <div class="pub-info">
+            <strong class="pub-title">{pub.title}</strong>
+            {pub.award && <span class="award">{pub.award}</span>}
+            <div class="authors">{pub.authors.map((author, i) => (<>{i > 0 && <span class="sep">, </span>}{author.url ? <a href={author.url} target="_blank" rel="noopener"><span class:list={[{ me: author.name === ME }]}>{author.name}</span></a> : <span class:list={[{ me: author.name === ME }]}>{author.name}</span>}</>))}</div>
+            <div class="venue">{pub.venue}</div>
+            {pub.links && (
+              <div class="pub-links">
+                {pub.links.pdf && <a href={pub.links.pdf}>[PDF]</a>}
+                {pub.links.arxiv && <a href={pub.links.arxiv}>[arXiv]</a>}
+                {pub.links.code && <a href={pub.links.code}>[Code]</a>}
+                {pub.links.project && <a href={pub.links.project}>[Project]</a>}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .pub-list {
+    padding: 0;
+  }
+
+  .pub-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pub-item:last-child {
+    border-bottom: none;
+  }
+
+  .pub-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .pub-image {
+    flex-shrink: 0;
+    width: 240px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .pub-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .pub-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .award {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #b8860b;
+    background: #fdf6e3;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+
+  .pub-title {
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .authors {
+    font-size: 0.92rem;
+    color: var(--color-text-light);
+    margin-bottom: 4px;
+  }
+
+  .authors a {
+    color: var(--color-accent);
+  }
+
+  .authors a:hover {
+    text-decoration: underline;
+  }
+
+  .me {
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .venue {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-text-light);
+  }
+
+  .pub-links {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .pub-links a {
+    font-size: 0.85rem;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 600px) {
+    .pub-row {
+      flex-direction: column;
+    }
+
+    .pub-image {
+      width: 100%;
+    }
+  }
+</style>
