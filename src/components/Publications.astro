@@ -20,10 +20,10 @@ const ME = "Xuejun Hu";
             <div class="venue">{pub.venue}</div>
             {pub.links && (
               <div class="pub-links">
-                {pub.links.pdf && <a href={pub.links.pdf}>[PDF]</a>}
-                {pub.links.arxiv && <a href={pub.links.arxiv}>[arXiv]</a>}
-                {pub.links.code && <a href={pub.links.code}>[Code]</a>}
-                {pub.links.project && <a href={pub.links.project}>[Project]</a>}
+                {pub.links.pdf && <a href={pub.links.pdf} class:list={[{ disabled: pub.links.pdf === "#" }]}>[PDF]</a>}
+                {pub.links.arxiv && <a href={pub.links.arxiv} class:list={[{ disabled: pub.links.arxiv === "#" }]}>[arXiv]</a>}
+                {pub.links.code && <a href={pub.links.code} class:list={[{ disabled: pub.links.code === "#" }]}>[Code]</a>}
+                {pub.links.project && <a href={pub.links.project} class:list={[{ disabled: pub.links.project === "#" }]}>[Project]</a>}
               </div>
             )}
           </div>
@@ -122,6 +122,12 @@ const ME = "Xuejun Hu";
   .pub-links a {
     font-size: 0.85rem;
     color: var(--color-accent);
+  }
+
+  .pub-links a.disabled {
+    color: var(--color-text-light);
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   @media (max-width: 600px) {

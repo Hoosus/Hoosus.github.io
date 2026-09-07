@@ -20,6 +20,22 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: "Pixel-Light Attention for Neural Many Light Importance Sampling",
+    authors: [
+      { name: "Xuejun Hu" },
+      { name: "Jinfan Lu", url: "https://github.com/LJFYC007" },
+      { name: "Kun Xu", url: "https://cg.cs.tsinghua.edu.cn/people/~kun/" },
+    ],
+    venue: "ACM Transactions on Graphics (SIGGRAPH Asia 2026)",
+    year: 2026,
+    image: "/pubs/manylight.jpg",
+    links: {
+      pdf: "#",
+      code: "#",
+      project: "#",
+    },
+  },
+  {
     title: "Gradient Domain Reconstruction for Monte Carlo PDE Solvers",
     authors: [
       { name: "Jiaqi Wu", url: "https://jiaoplusjuan.github.io/" },
@@ -32,8 +48,8 @@ export const publications: Publication[] = [
     image: "/pubs/gdmcpde.jpg",
     award: "Best Paper Honorable Mention",
     links: {
-      pdf: "#",
-      code: "#",
+      pdf: "https://jiaoplusjuan.github.io/paper/Gradient-Domain-Reconstruction-for-Monte-Carlo-PDE-Solvers.pdf",
+      code: "https://github.com/jiaoplusjuan/Gradient-Domain-Reconstruction-for-Monte-Carlo-PDE-Solvers",
       project: "https://jiaoplusjuan.github.io/GDMCPDE.html",
     },
   },
