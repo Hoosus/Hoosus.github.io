@@ -75,7 +75,7 @@ export const publications: Publication[] = [
     authors: [
       { name: "Jiankai Xing", url: "https://jkxing.github.io/academic/" },
       { name: "Xuejun Hu" },
-      { name: "Fujun Luan" },
+      { name: "Fujun Luan", url: "https://github.com/luanfujun" },
       { name: "Ling-Qi Yan", url: "https://sites.cs.ucsb.edu/~lingqi/" },
       { name: "Kun Xu", url: "https://xukun85.github.io/" },
     ],
@@ -93,10 +93,10 @@ export const publications: Publication[] = [
       "Differentiable Rendering using RGBXY Derivatives and Optimal Transport",
     authors: [
       { name: "Jiankai Xing", url: "https://jkxing.github.io/academic/" },
-      { name: "Fujun Luan" },
+      { name: "Fujun Luan", url: "https://github.com/luanfujun" },
       { name: "Ling-Qi Yan", url: "https://sites.cs.ucsb.edu/~lingqi/" },
       { name: "Xuejun Hu" },
-      { name: "Houde Qian" },
+      { name: "Houde Qian", url: "https://github.com/Ashitemaru" },
       { name: "Kun Xu", url: "https://xukun85.github.io/" },
     ],
     venue: "ACM Transactions on Graphics (SIGGRAPH Asia 2022)",
